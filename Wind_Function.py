@@ -40,7 +40,7 @@ def clean_data(wind_data, direction_data, wind_values_exclude, dir_high_range, d
     clean_wind = []
     clean_dir = []
     for wind, direction in zip(wind_data, direction_data):
-        if wind not in wind_values_exclude:
+        if wind not in wind_values_exclude and not np.isnan(wind):
             if direction<= dir_high_range and direction>=dir_low_range:
                 clean_wind.append(wind)
                 clean_dir.append(direction)
